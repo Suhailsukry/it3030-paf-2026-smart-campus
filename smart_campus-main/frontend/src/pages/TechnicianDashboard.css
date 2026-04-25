@@ -1,0 +1,347 @@
+/* ============================================================
+   TechnicianDashboard.css
+   Styles for the Technician Task Queue page.
+   Follows the same glassmorphism / dark-theme patterns as Tickets.css
+   ============================================================ */
+
+/* ── Page wrapper ── */
+.tech-dashboard {
+    padding-bottom: 3rem;
+}
+
+/* ── Stats row at top ── */
+.tech-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tech-stat-card {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.tech-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.tech-stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tech-stat-label {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+}
+
+/* ── Filter tabs (reused from Tickets.css pattern) ── */
+.status-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.45rem 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 9999px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-main);
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+}
+
+/* ── Ticket card extras (base card uses .glass-panel .ticket-card from Tickets.css) ── */
+.tech-ticket-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: var(--transition);
+}
+
+.tech-ticket-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Meta row: raised-by + location ── */
+.tech-ticket-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+.tech-ticket-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ── Resolution/Notes box shown after accept/resolve ── */
+.tech-notes-box {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+}
+
+.tech-notes-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+
+.tech-notes-box p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Action buttons strip at bottom of card ── */
+.tech-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* Accept – green */
+.tech-btn-accept {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    flex: 1;
+}
+
+.tech-btn-accept:hover {
+    background: var(--success);
+    color: #fff;
+    border-color: var(--success);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Reject – red */
+.tech-btn-reject {
+    background: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    flex: 1;
+}
+
+.tech-btn-reject:hover {
+    background: var(--danger);
+    color: #fff;
+    border-color: var(--danger);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Resolve – primary/indigo */
+.tech-btn-resolve {
+    background: rgba(79, 70, 229, 0.12);
+    color: var(--primary);
+    border: 1px solid rgba(79, 70, 229, 0.5);
+    flex: 1;
+}
+
+.tech-btn-resolve:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ── Resolved / Rejected inline badge at bottom of card ── */
+.tech-resolved-strip,
+.tech-rejected-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.tech-resolved-strip {
+    color: var(--success);
+}
+
+.tech-rejected-strip {
+    color: var(--danger);
+}
+
+/* ── Modal overrides (reuse .modal-backdrop + .modal + .modal-actions from Tickets) ── */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal {
+    width: 100%;
+    max-width: 520px;
+    padding: 2rem;
+    margin: 1rem;
+    animation: fadeIn 0.2s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* Modal title colour variants */
+.modal-action-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-action-title.accept { color: var(--success); }
+.modal-action-title.reject { color: var(--danger); }
+.modal-action-title.resolve { color: #818CF8; }    /* light indigo */
+
+/* Small ticket summary inside modal */
+.modal-ticket-summary {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.modal-ticket-summary p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.modal-ticket-summary .summary-meta {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-top: 0.35rem;
+}
+
+/* ── Page header (mirrors Tickets page header) ── */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    line-height: 1.2;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ── Loading / empty states ── */
+.loading-state {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.95rem;
+}
+
+/* ── Toast ── */
+.toast-notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    color: #fff;
+    padding: 0.9rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    z-index: 9999;
+    box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45);
+    opacity: 0;
+    transform: translateY(-16px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Textarea inside modal ── */
+.tech-dashboard .modal textarea.input-field {
+    resize: vertical;
+    min-height: 100px;
+    font-family: var(--font-main);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .tech-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-action-buttons {
+        flex-direction: column;
+    }
+
+    .tech-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
