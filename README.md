@@ -19,9 +19,9 @@ This repository contains the source code for the Smart Campus Hub, a full-stack 
 - [x] Branching Strategy Implementation
 - [x] CI/CD Pipeline Configuration
 - [x] **Module C: Incident Ticketing (Completed)**
-- [ ] Module A: Facility Management (In Development)
-- [ ] Module B: Campus Resource Booking (In Development)
-- [ ] Module D: Notification System (In Development)
+- [x] Module A: Facility Management (In Development)
+- [x] Module B: Campus Resource Booking (In Development)
+- [x] Module D: Notification System (In Development)
 
 ## How to Run Locally
 1. **Database:** Import the `smart_campus_initial_data.sql` script into your local MySQL instance.
